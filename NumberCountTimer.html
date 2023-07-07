@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Number Count Timer</title>
+<style>
+body 
+h1 {
+			text-align: center;
+			color: #666666;
+		}
+{
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.timer {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.timer-number {
+  font-size: 60px;
+}
+
+.start-button,
+.stop-button,
+.reset-button {
+  width: 100px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: #ccc;
+  color: #000;
+}
+
+.start-button:hover,
+.stop-button:hover,
+.reset-button:hover {
+  background-color: #000;
+}
+</style>
+</head>
+<body>
+<h1>Number Count Timer</h1>
+<div class="timer">
+  <div class="timer-number"></div>
+  <button class="start-button">Start</button>
+  <button class="stop-button">Stop</button>
+  <button class="reset-button">Reset</button>
+</div>
+<script>
+let timer = 0;
+let timerInterval;
+
+const startTimer = () => {
+  timerInterval = setInterval(() => {
+    timer++;
+    document.querySelector(".timer-number").textContent = timer;
+  }, 1000);
+};
+
+const stopTimer = () => {
+  clearInterval(timerInterval);
+};
+
+const resetTimer = () => {
+  timer = 0;
+  document.querySelector(".timer-number").textContent = timer;
+};
+
+document.querySelector(".start-button").addEventListener("click", startTimer);
+document.querySelector(".stop-button").addEventListener("click", stopTimer);
+document.querySelector(".reset-button").addEventListener("click", resetTimer);
+</script>
+</body>
+</html>
