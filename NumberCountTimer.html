@@ -4,7 +4,8 @@
 <title>Number Count Timer</title>
 <style>
 body 
-h1 {
+h1 
+{
 			text-align: center;
 			color: #666666;
 		}
@@ -53,10 +54,17 @@ h1 {
 let timer = 0;
 let timerInterval;
 
+const playMP3 = (number) => {
+  const audioElement = document.createElement("audio");
+  audioElement.src = `audio/number${number}.mp3`;
+  audioElement.play();
+};
+
 const startTimer = () => {
   timerInterval = setInterval(() => {
     timer++;
     document.querySelector(".timer-number").textContent = timer;
+    playMP3(timer);
   }, 1000);
 };
 
